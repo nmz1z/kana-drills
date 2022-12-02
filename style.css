@@ -4,10 +4,6 @@
 
 }
 :root{
-    --background: #222;
-    --highlight: #403157;
-    --highlight-text:#6a3593;
-    --contrast: #EEE;
     --large: 4.5rem;
     --medium: 3.5rem;
     --small: 1.75rem;
@@ -55,6 +51,7 @@ header{
     font-size: var(--small);
 }
 #theme-button{
+    margin-left: 0.75rem;
     margin-bottom: var(--small);
     /* color: var(--contrast); */
     color: black;
@@ -132,7 +129,7 @@ header p{
     margin-top: auto;
 }
 .card-button:hover{
-    background-color: red;
+    background-color: goldenrod;
 }
 .back{
     transform: rotateY(-180deg);
