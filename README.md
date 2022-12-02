@@ -9,6 +9,7 @@ https://nmz1z.github.io/kana-drills/
 - Added new characters
 - Added theme selector (Dark/Light mode)
 - CSS fixes
+- Fixed image loading after flip animation
 
 ### December 1st, 2022
 
