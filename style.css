@@ -80,7 +80,7 @@ header p{
     position: relative;
     transform-style: preserve-3d;
     -moz-backface-visibility: hidden; /* firefox: bug that won't hide rotated elements backfaces*/
-    transition: 0.7s all;
+    transition: 0.85s all;
 }
 .card{
     box-sizing: border-box;
