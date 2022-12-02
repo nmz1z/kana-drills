@@ -8,8 +8,8 @@
     --highlight: #2d0050;
     --highlight-text:#7e1fc6;
     --contrast: #EEE;
-    --large: 4rem;
-    --medium: 3rem;
+    --large: 4.5rem;
+    --medium: 3.5rem;
     --small: 1.75rem;
 }
 
@@ -29,6 +29,7 @@ html{
     font-family: "Noto Sans JP";
 }
 body{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,8 +56,8 @@ header p{
 }
 .card-container{
     box-sizing: border-box;
-    width: 300px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
     display: flex;
     margin: auto;
     position: relative;
@@ -68,8 +69,8 @@ header p{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
     position: absolute;
     top: 0;
     backface-visibility: hidden;
