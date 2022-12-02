@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1d631eaa19.js" crossorigin="anonymous"></script>
+    <title>Kana Drills</title>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <h1>KANA DRILLS</h1>
+        <p>v0.1</p>
+    </header>
+    <!-- main -->
+    <main>
+        <div class="card-container flip" id="card-container">
+            <div class="card front">
+                <h1 class="name" id="front-name">ナルト</h1>
+                <input type="text" id="answer-field" placeholder="type your answer"/>
+                <button class="card-button" id="front-button">CHECK</button>
+            </div>
+            <div class="card back">
+                <h1 class="name" id="back-name">ナルト</h1>
+                <img src="" alt="ohno :(" id="back-image" />
+                <h1 class="name" id="back-answer">Naruto</h1>
+                <p class="back-text">Anime: <span id="anime">Naruto series</span></p>
+                <p id="answer-feedback">FEEDBACK!</p>
+                <button class="card-button" id="back-button">NEXT</button>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div class="info-box">
+            <div id="info-icons">
+                <a href="https://github.com/nmz1z/"><i class="fa-brands fa-github"></i></a>
+                <a href="https://twitter.com/nmz1z_"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div id="info-text">
+                <p>created by nmz1z</p>
+                <p>2022</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+    <script src="data/database.js"></script>
+    <script src="script.js"></script>
+</html>
