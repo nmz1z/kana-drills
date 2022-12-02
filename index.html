@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +14,19 @@
 <body>
     <!-- header -->
     <header>
-        <h1>KANA DRILLS</h1>
-        <p>v0.1</p>
+        <h1>Kana drills!</h1>
+        <p>v0.2</p>
+        <span>Lights:</span>
+        <button class="menu-button" id="theme-button">
+        <i class="fa-regular fa-lightbulb"></i>
+        </button>
     </header>
     <!-- main -->
     <main>
         <div class="card-container flip" id="card-container">
             <div class="card front">
                 <h1 class="name" id="front-name">ナルト</h1>
-                <input type="text" id="answer-field" placeholder="type your answer"/>
+                <input type="text" id="answer-field" placeholder="type your answer" />
                 <button class="card-button" id="front-button">CHECK</button>
             </div>
             <div class="card back">

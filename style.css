@@ -5,28 +5,35 @@
 }
 :root{
     --background: #222;
-    --highlight: #2d0050;
-    --highlight-text:#7e1fc6;
+    --highlight: #403157;
+    --highlight-text:#6a3593;
     --contrast: #EEE;
     --large: 4.5rem;
     --medium: 3.5rem;
     --small: 1.75rem;
 }
 
-[data-theme="dark"]{
-    --background: #222;
-    --highlight: #340757;
-    --contrast: #EEE;
-}
-[data-theme="dark"]{
-    --contrast: #222;
-    --highlight: #4e0487;
-    --background: #EEE;
-}
 html{
     margin: 0;
     font-size: 62.5%;
     font-family: "Noto Sans JP";
+}
+html[data-theme="dark"]{
+    --background: #222;
+    --highlight: #340757;
+    --contrast: #EEE;
+    --highlight-text:#6a3593;
+    --bg-img-color: #1a1919;
+    --bg-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%233c1675' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+html[data-theme="light"]{
+    --contrast: #222;
+    --highlight: #72508c;
+    --background: rgb(209, 209, 209);
+    --highlight-text:#6a3593;
+    --bg-img-color: #b0b0b0;
+    --bg-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%239b6ee4' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+   
 }
 body{
     min-height: 100vh;
@@ -34,9 +41,8 @@ body{
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
-    background-color: #222;
-    background-color: #111111;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='16' viewBox='0 0 12 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z' fill='%233c1675' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-color: var(--bg-img-color);
+    background-image: var(--bg-image);
 }
 main{
     padding: 2.55% 0;
@@ -46,7 +52,18 @@ header{
     text-align: center;
     background-color: var(--highlight);
     color: var(--contrast);
-    font-size: 2rem;
+    font-size: var(--small);
+}
+#theme-button{
+    margin-bottom: var(--small);
+    /* color: var(--contrast); */
+    color: black;
+    font-size: calc(1.2*var(--small));
+    background-color: rgb(166, 125, 0);
+    border: 3px solid var(--contrast);
+    border-radius: 3px;
+    flex-grow: 0;
+    cursor: pointer;
 }
 header h1{
     margin: 0.5rem auto 0;
@@ -63,7 +80,7 @@ header p{
     position: relative;
     transform-style: preserve-3d;
     -moz-backface-visibility: hidden; /* firefox: bug that won't hide rotated elements backfaces*/
-    transition: 1s all;
+    transition: 0.7s all;
 }
 .card{
     box-sizing: border-box;
@@ -74,6 +91,7 @@ header p{
     position: absolute;
     top: 0;
     backface-visibility: hidden;
+    justify-content: space-evenly;
     text-align: center;
     align-items: center;
     /*  */
@@ -99,14 +117,19 @@ header p{
     height: 40px;
 }
 .card-button{
-    margin-bottom: 4%;
-    margin-top: 6%;
+    margin-bottom: 6%;
+    margin-top: 4%;
     width: 50%;
     height: 45px;
     background-color: var(--highlight);
-    border: solid 1px var(--contrast);
+    border: solid 3px var(--contrast);
     font-size: var(--small);
+    font-weight: bolder;
     color: var(--contrast);
+}
+#front-button{
+    margin-bottom: 9%;
+    margin-top: auto;
 }
 .card-button:hover{
     background-color: red;
@@ -122,9 +145,10 @@ header p{
     margin: 3% auto;
 }
 #back-image{
-    width: 90%;
+    width: 80%;
     aspect-ratio: 5/3;
-    box-shadow: 0 0 10px #7800d4;
+    transform: translateX(-2px);
+    box-shadow: 8px 8px 2px 1px var(--highlight-text);
     object-fit: cover;
 }
 .back-text{
@@ -183,5 +207,9 @@ a:hover{
     .card, .card-container{
         height: 450px;
         width: 250px;
+        justify-content: space-evenly;
+    }
+    #back-image{
+        box-shadow: 7px 7px 1px 1px #7800d4;
     }
 }

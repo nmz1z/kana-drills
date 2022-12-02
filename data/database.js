@@ -48,5 +48,26 @@ var dataArray = [
         img: "img/megumin.png",
         anime: "KonoSuba"
     },
+    {
+        romaji: "Killua",
+        katakana: "キルア",
+        hiragana: "",
+        img: "img/killua.png",
+        anime: "Hunter x Hunter"
+    },
+    {
+        romaji: "Kitagawa",
+        katakana: "キタガワ",
+        hiragana: "",
+        img: "img/kitagawa.png",
+        anime: "My Dress-up Darling"
+    },
+    {
+        romaji: "Saitama",
+        katakana: "サイタマ",
+        hiragana: "",
+        img: "img/saitama.png",
+        anime: "One Punch Man"
+    },
 ]
 
