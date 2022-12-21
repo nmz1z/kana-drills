@@ -14,10 +14,12 @@ let backAnswer = document.getElementById("back-answer");
 let anime = document.getElementById("anime");
 let answerFeedback = document.getElementById("answer-feedback");
 let backButton = document.getElementById("back-button");
-// 
+// state
 var isFlipping = false;
-var playerAnswer;
 var currentCard;
+var currentState;
+//
+var playerAnswer;
 
 // functions: menu
 function toggleTheme(){
@@ -41,6 +43,8 @@ function getNewCard(){
     backAnswer.textContent = currentCard.romaji;
     anime.textContent = currentCard.anime;
     backImage.src = currentCard.img;
+    currentState = 'front';
+
 }
 function checkAnswer(){
     if(!isFlipping){
@@ -49,18 +53,19 @@ function checkAnswer(){
         if(answer.toUpperCase() === currentCard.romaji.toUpperCase()){
             answerFeedback.style.color = "green";
             answerFeedback.textContent = "CORRECT";
-    
+
         }else {
             answerFeedback.style.color = "red";
             answerFeedback.textContent = "WRONG";
         }
         flipCard();
+        currentState = 'back';
         setTimeout(() => {answerField.value = "";}, 700); // clear answer field after animation
         setTimeout(() => {isFlipping = false}, 850);
     } else {}
 }
 function getNextCard()
-{   
+{
     if(!isFlipping){
         isFlipping = true;
         flipCard();
@@ -72,6 +77,18 @@ function getNextCard()
 
 // init
 getNewCard();
+answerField.select();
 frontButton.addEventListener("click", checkAnswer);
+window.addEventListener("keypress", (e) => {
+    if(e.key === 'Enter'){
+        if(currentState === 'front'){
+            checkAnswer();
+        }
+        else{
+            getNextCard();
+            answerField.select();
+        }
+    }
+});
 backButton.addEventListener("click", getNextCard);
 themeButton.addEventListener("click", toggleTheme)
