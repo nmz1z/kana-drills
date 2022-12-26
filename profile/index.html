@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/kana-drills/style.css">
+    <link rel="stylesheet" href="profile-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
@@ -12,6 +13,7 @@
     <title>Kana Drills</title>
 </head>
 <body>
+    <div class="modal-mask"></div>
     <!-- header -->
     <header>
         <h1>Kana drills!</h1>
@@ -24,17 +26,29 @@
     </header>
     <!-- main -->
     <main>
-        <div class="settings-container">
+        <div class="modal-content">
             <label for="">Name</label>
-            <input type="text" class="settings-input" id="">
+            <input type="text" class="card-input" id="">
             <label for="">Hiragana</label>
-            <input type="text" class="settings-input" id="">
+            <input type="text" class="card-input" id="">
             <label for="">Katakana</label>
-            <input type="text" class="settings-input" id="">
+            <input type="text" class="card-input" id="">
             <label for="">Anime</label>
-            <input type="text" class="settings-input" id="">
+            <input type="text" class="card-input" id="">
             <label for="">Image Link</label>
-            <input type="text" class="settings-input" id="">
+            <input type="text" class="card-input" id="">
+            <button class="submit-button">Add Card</button>
+        </div>
+        <div class="profile-container">
+            <div class="cards-list">
+                <div class="list-item">
+                    <!--
+                        ** name
+                        ** edit
+                        ** delete
+                     -->
+                </div>
+            </div>
         </div>
     </main>
     <!-- footer -->
