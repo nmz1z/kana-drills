@@ -13,13 +13,13 @@ function toggleTheme(){
 themeButton.addEventListener("click", toggleTheme);
 //// OBJECT
 class customCard {
-    constructor(id, rom, kat, hir, img, anime){
+    constructor(id, rom, kat, hir, anime, img){
         this.id = id;
-        this.romaji = rom;
+        this.name = rom;
         this.katakana = kat;
         this.hiragana = hir;
-        this.img = img;
         this.anime = anime;
+        this.img = img;
     }
 }
 //// VARIABLES
@@ -62,6 +62,7 @@ function resetInputs(){
 function createCard(){
     // create DOM element
     const element = document.createElement('div');
+    element.classList.add('list-item')
     // get values
     const id = new Date().getTime().toString();
     const name = nameInput.value;
@@ -72,21 +73,19 @@ function createCard(){
     // create card object
     const newCard = new customCard(id, name, kat, hir, anime, img);
     // setup element
-    element.id = id;
     element.innerHTML = `
-    <div class="list-item">
         <p class="item-name">${name}</p>
         <div class="item-icons">
             <i class="fa-regular fa-pen-to-square"></i>
             <i class="fa-solid fa-trash"></i>
         </div>
-    </div>
     `
+    element.id = id;
     // add eventListeners to edit/del buttons
     const edit = element.querySelector('.fa-pen-to-square');
     edit.addEventListener('click', openEditMenu);
     const del = element.querySelector('.fa-trash');
-    del.addEventListener('click', askDelete);
+    del.addEventListener('click', deleteItem);
 
     // append to List
     cardList.append(element);
@@ -96,21 +95,25 @@ function createCard(){
 
     toggleModal();
 }
-function askDelete(element, id){
-    // get element, get object
-    //
+function askDelete(e){
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.id;
 
     // open delete confirmation
     // button.value = id;
     // deleteItem(id, element)
 }
 
-
+let currentElement;
 function deleteItem(e){
     // currentElement = e.target.parentElement.parentElement
     // currentElementId = e.target.parentElement.parentElement.id
+    // currentElement = e.currentTarget.parentElement.parentElement;
+    const element = e.currentTarget.parentElement.parentElement;
+    const id = element.id;
     // delete element
-
+    cardList.removeChild(element);
+    removeFromStorage(id);
     // search list (id)
         // delete object{id}
 
@@ -159,12 +162,54 @@ function addToStorage(object){
     localStorage.setItem('customDeck', JSON.stringify(deck));
 }
 
+function removeFromStorage(id){
+    let deck = getStorage();
+    deck = deck.filter(function (item) {
+        if (item.id !== id) {
+          return item;
+        }
+      });
+      localStorage.setItem('customDeck', JSON.stringify(deck));
+}
+function setUpList(){
+    let deck = getStorage();
+    if(deck.length > 0)
+    {
+        deck.forEach(function (item) {
+            createListItem(item);
+            console.log('oi')
+          });
+    }
+}
+function createListItem(object){
+    const element = document.createElement('div');
+    element.classList.add('list-item');
+
+    element.innerHTML = `
+        <p class="item-name">${object.name}</p>
+        <div class="item-icons">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-solid fa-trash"></i>
+        </div>
+    `
+    element.id = object.id;
+
+    const edit = element.querySelector('.fa-pen-to-square');
+    edit.addEventListener('click', openEditMenu);
+    const del = element.querySelector('.fa-trash');
+    del.addEventListener('click', deleteItem);
+
+    cardList.append(element);
+}
+
+
 //// INIT
 addButton.addEventListener('click', toggleModal);
 xButton.addEventListener('click', toggleModal);
 
 modalAddButton.addEventListener('click', createCard)
-
+// window.addEventListener('onload', setUpList)
+setUpList();
 // local storage
 /*
     getLocalStorage
