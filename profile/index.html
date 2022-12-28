@@ -13,7 +13,7 @@
     <title>Kana Drills</title>
 </head>
 <body>
-    <div class="modal-mask"></div>
+    <div class="modal-mask" id="modal-mask"></div>
     <!-- header -->
     <header>
         <h1>Kana drills!</h1>
@@ -26,29 +26,39 @@
     </header>
     <!-- main -->
     <main>
-        <div class="modal-content">
+        <div class="modal-content" id="modal-content">
+            <i class="fa-solid fa-x" id="modal-x"></i>
             <label for="">Name</label>
-            <input type="text" class="card-input" id="">
-            <label for="">Hiragana</label>
-            <input type="text" class="card-input" id="">
+            <input type="text" class="card-input" id="name-input" required>
             <label for="">Katakana</label>
-            <input type="text" class="card-input" id="">
+            <input type="text" class="card-input" id="katakana-input" required>
+            <label for="">Hiragana</label>
+            <input type="text" class="card-input" id="hiragana-input" required>
             <label for="">Anime</label>
-            <input type="text" class="card-input" id="">
+            <input type="text" class="card-input" id="anime-input">
             <label for="">Image Link</label>
-            <input type="text" class="card-input" id="">
-            <button class="submit-button">Add Card</button>
+            <input type="text" class="card-input" id="image-input">
+            <button class="submit-button" id="modal-add-button">Add Card</button>
         </div>
         <div class="profile-container">
-            <div class="cards-list">
-                <div class="list-item">
-                    <!--
-                        ** name
-                        ** edit
-                        ** delete
-                     -->
+            <h1>Profile</h2>
+            <div class="card-list">
+                <!-- <div class="list-item">
+                    <p class="item-name">Kirito</p>
+                    <div class="item-icons">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
                 </div>
+                <div class="list-item">
+                    <p class="item-name">Kirito</p>
+                    <div class="item-icons">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div> -->
             </div>
+            <button class="submit-button" id="add-button">New Card</button>
         </div>
     </main>
     <!-- footer -->
@@ -65,7 +75,5 @@
         </div>
     </footer>
 </body>
-
-    <script src="data/database.js"></script>
     <script src="script.js"></script>
 </html>
