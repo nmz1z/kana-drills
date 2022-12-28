@@ -1,4 +1,4 @@
-var dataArray = [
+var defaultDeck = [
     {
         romaji: "Naruto",
         katakana: "ナルト",
@@ -70,4 +70,3 @@ var dataArray = [
         anime: "One Punch Man"
     },
 ]
-
