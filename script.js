@@ -21,6 +21,9 @@ var currentState;
 //
 var playerAnswer;
 
+let dataArray;
+let customDeck;
+
 // functions: menu
 function toggleTheme(){
     let currentTheme = document.documentElement.getAttribute("data-theme");
@@ -76,6 +79,9 @@ function getNextCard()
 }
 
 // init
+customDeck = getCustomDeck();
+dataArray = [...defaultDeck, ...customDeck];
+
 getNewCard();
 answerField.select();
 frontButton.addEventListener("click", checkAnswer);
@@ -91,4 +97,14 @@ window.addEventListener("keypress", (e) => {
     }
 });
 backButton.addEventListener("click", getNextCard);
-themeButton.addEventListener("click", toggleTheme)
+themeButton.addEventListener("click", toggleTheme);
+
+
+function getCustomDeck(){
+    if(localStorage.getItem('customDeck')){
+        return JSON.parse(localStorage.getItem('customDeck'));
+    }
+    else{
+        return [];
+    }
+}
