@@ -32,7 +32,7 @@ main{
     position: relative;
 }
 .modal-content{
-    /* visibility: hidden; */
+    visibility: hidden;
     top: 20%;
     left: 0;
     right: 0;
