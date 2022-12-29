@@ -32,7 +32,7 @@ main{
     position: relative;
 }
 .modal-content{
-    visibility: hidden;
+    /* visibility: hidden; */
     top: 20%;
     left: 0;
     right: 0;
@@ -95,6 +95,7 @@ main{
     margin-top: 20px;
     border: var(--contrast) solid 1px;
     width: 80%;
+    min-height: 100px;
     max-height: 350px;
     min-width: 290px;
     display: flex;
@@ -124,4 +125,9 @@ main{
 }
 .fa-pen-to-square{
     color: dodgerblue;
+}
+.image-validator{
+    width: 30%;
+    margin: auto;
+    text-align: center;
 }
