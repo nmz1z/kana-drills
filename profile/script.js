@@ -202,17 +202,27 @@ function createListItem(object){
     cardList.append(element);
 }
 
+let imageValidator = document.querySelector('.image-validator');
+function checkImage(e) {
+    var request = new XMLHttpRequest();
+    request.open("GET", e.currentTarget.value, true);
+    request.send();
+    request.onload = function() {
+      if (request.status == 200) //if(statusText == OK)
+      {
+        imageValidator.textContent = 'valid image'
+        imageValidator.style.color = 'green';
+      } else {
+        imageValidator.textContent = 'invalid image'
+        imageValidator.style.color = 'red';
+      }
+    }
+}
 
 //// INIT
 addButton.addEventListener('click', toggleModal);
 xButton.addEventListener('click', toggleModal);
 
+imgInput.addEventListener('change', checkImage);
 modalAddButton.addEventListener('click', createCard)
-// window.addEventListener('onload', setUpList)
 setUpList();
-// local storage
-/*
-    getLocalStorage
-
-    deleteFromLocal
-*/
