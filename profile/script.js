@@ -15,7 +15,7 @@ themeButton.addEventListener("click", toggleTheme);
 class customCard {
     constructor(id, rom, kat, hir, anime, img){
         this.id = id;
-        this.name = rom;
+        this.romaji = rom;
         this.katakana = kat;
         this.hiragana = hir;
         this.anime = anime;
@@ -186,7 +186,7 @@ function createListItem(object){
     element.classList.add('list-item');
 
     element.innerHTML = `
-        <p class="item-name">${object.name}</p>
+        <p class="item-name">${object.romaji}</p>
         <div class="item-icons">
             <i class="fa-regular fa-pen-to-square"></i>
             <i class="fa-solid fa-trash"></i>

@@ -29,7 +29,7 @@
         <div class="modal-content" id="modal-content">
             <i class="fa-solid fa-x" id="modal-x"></i>
             <label for="">Name</label>
-            <input type="text" class="card-input" id="name-input" required>
+            <input type="text" class="card-input" id="name-input"  onkeydown="return /[a-z]/i.test(event.key)" required>
             <label for="">Katakana</label>
             <input type="text" class="card-input" id="katakana-input" required>
             <label for="">Hiragana</label>
